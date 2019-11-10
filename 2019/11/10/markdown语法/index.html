@@ -61,7 +61,7 @@
 <meta property="og:description" content="一、标题在想要设置为标题的文字前面加#来表示 一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;6860761-fd2f51090a890873.jpg?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;550&#x2F;format&#x2F;webp">
-<meta property="og:updated_time" content="2019-11-10T01:24:16.201Z">
+<meta property="og:updated_time" content="2019-11-10T01:25:35.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;6860761-fd2f51090a890873.jpg?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;550&#x2F;format&#x2F;webp">
 
@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-11-10 08:58:50 / Modified: 09:24:16" itemprop="dateCreated datePublished" datetime="2019-11-10T08:58:50+08:00">2019-11-10</time>
+              <time title="Created: 2019-11-10 08:58:50 / Modified: 09:25:35" itemprop="dateCreated datePublished" datetime="2019-11-10T08:58:50+08:00">2019-11-10</time>
             </span>
 
           
@@ -459,6 +459,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -606,6 +607,24 @@
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'ca1c3ce522341bab1575',
+      clientSecret: '98bea9d7a24697bbcaeb651ab737d1ac318e5fa4',
+      repo: 'Lcamn.github.io',
+      owner: 'Lcamn',
+      admin: ['Lcamn'],
+      id: 'e3aca5172e160cb0ccec96006e14a582',
+        language: 'zh-CN',
+      distractionFreeMode: 'false'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 </html>

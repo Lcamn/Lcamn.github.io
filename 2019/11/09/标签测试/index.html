@@ -263,6 +263,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -409,6 +410,24 @@
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'ca1c3ce522341bab1575',
+      clientSecret: '98bea9d7a24697bbcaeb651ab737d1ac318e5fa4',
+      repo: 'Lcamn.github.io',
+      owner: 'Lcamn',
+      admin: ['Lcamn'],
+      id: '6fd03b5712b2e6f62c7eb451e9b0d3fc',
+        language: 'zh-CN',
+      distractionFreeMode: 'false'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 </html>
