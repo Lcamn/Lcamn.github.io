@@ -60,7 +60,7 @@
 <meta property="og:site_name" content="Lcamn">
 <meta property="og:description" content="一、  准备工作 安装git 、node.js  安装git  镜像网站 下载">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-10T08:05:39.215Z">
+<meta property="og:updated_time" content="2019-11-10T08:50:26.615Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/10/hexo-nexT-github-gitalk-%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/">
@@ -210,7 +210,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-11-10 14:28:29 / Modified: 16:05:39" itemprop="dateCreated datePublished" datetime="2019-11-10T14:28:29+08:00">2019-11-10</time>
+              <time title="Created: 2019-11-10 14:28:29 / Modified: 16:50:26" itemprop="dateCreated datePublished" datetime="2019-11-10T14:28:29+08:00">2019-11-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,25 +250,31 @@
 <li>新建一个名为<code>你的用户名.github.io</code>的仓库，比如说，如果你的github用户名是test，那么你就新建<code>test.github.io</code>的仓库（必须是你的用户名，其它名称无效），将来网站访问地址就是 <a href="http://test.github.io" target="_blank" rel="noopener">http://test.github.io</a></li>
 <li>使用SSH key来解决本地和服务器连接问题：用 Git Bash 执行如下命令：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/. ssh <span class="comment">#检查本机已存在的ssh密钥</span></span><br><span class="line">  <span class="comment">#如果提示：No such file or directory 说明你是第一次使用git。</span></span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> $ <span class="built_in">cd</span> ~/. ssh <span class="comment">#检查本机已存在的ssh密钥</span></span><br><span class="line">  <span class="comment">#如果提示：No such file or directory 说明你是第一次使用git。</span></span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址"</span></span><br></pre></td></tr></table></figure>
 
 <p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到<code>.ssh\id_rsa.pub</code>文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key： 将刚复制的内容粘贴到key那里，title随便填，保存。</p>
+</li>
+</ul>
 <ul>
-<li>测试是否成功<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com <span class="comment"># 注意邮箱地址不用改</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果提示：`Are you sure you want to continue connecting (yes/no)?`，输入yes，然后会看到：</span><br><span class="line"></span><br><span class="line">&gt; username! You’ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br><span class="line">看到这个信息说明SSH已经成功!  之后需要配置:</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">$ git config --global user.name &quot;liuxianan&quot;// 你的github用户名，非昵称</span><br><span class="line">$ git config --global user.email  &quot;xxx@qq.com&quot;// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure>
+<li><p>测试是否成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com <span class="comment"># 注意邮箱地址不用改</span></span><br></pre></td></tr></table></figure>
+
+<p>如果提示：<code>Are you sure you want to continue connecting (yes/no)?</code>，输入yes，然后会看到：</p>
+<blockquote>
+<p>username! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</blockquote>
+<p>看到这个信息说明SSH已经成功!  之后需要配置:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"liuxianan"</span>// 你的github用户名，非昵称</span><br><span class="line">$ git config --global user.email  <span class="string">"xxx@qq.com"</span>// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure>
 
 
 
 </li>
 </ul>
-</li>
-</ul>
 <ul>
-<li>安装hexo<ul>
+<li><p>安装hexo</p>
+<ul>
 <li>新建目录hexo，用来初始化hexo</li>
 <li>在hexo根目录下，打开Git Bash 执行命令：</li>
-</ul>
-</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br><span class="line">hexo init</span><br><span class="line">hexo g </span><br><span class="line">hexo s</span><br><span class="line"><span class="comment">#在浏览器上输入地址：http://localhost:4000/ 即可看是否成功</span></span><br></pre></td></tr></table></figure>
 
@@ -276,10 +282,13 @@
 
 
 
+</li>
+</ul>
 <hr>
 <h1 id="二、修改主题"><a href="#二、修改主题" class="headerlink" title="二、修改主题"></a>二、修改主题</h1><p>比较好看的主题 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a> 、<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">nexT</a>   (我使用的是nexT)</p>
 <p>下载方式1 ：进入hexo根目录 用Git Bash 执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
 
 <p>下载方式2：直接在github下载，解压到  /themes</p>
 <p>然后修改<code>_config.yml</code>中的<code>theme: landscape</code>改为<code>theme: yilia</code>，然后重新执行<code>hexo g</code>来重新生成，如果有错误 使用 <code>hexo clean</code> 之后再 <code>hexo g</code> 重新生成。上传使用 <code>hexo d</code> ，在浏览器输入<code>你的用户名.github.io</code>即可查看效果。</p>
@@ -287,32 +296,31 @@
 <h1 id="三、写博客"><a href="#三、写博客" class="headerlink" title="三、写博客"></a>三、写博客</h1><ul>
 <li><p>新建文章：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"标题"</span></span><br></pre></td></tr></table></figure>
-
-
 </li>
-</ul>
-<ul>
 <li><p>添加 分类、标签、关于菜单项：</p>
 <ul>
 <li><p>首先打开主题下的配置文件_config.yml，然后搜索menu找到如下配置项，将about、tags、categories前的#号去掉，就开启了关于、标签和分类标签，当然还有其他菜单项也可以开启。重新生成部署后，可以看到新增的菜单项，但是单击后会报错，因为还需要运行如下命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"about"</span></span><br><span class="line">hexo new page <span class="string">"tags"</span></span><br><span class="line">hexo new page <span class="string">"categories"</span></span><br></pre></td></tr></table></figure>
 
 <p>运行结果如下，会再source文件下创建about、tags、categories文件夹，每个文件夹下还会创建一个index.md文件表示关于、标签页分类页面，编辑这三个MarkDown文件可以自定义这三个页面的内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"about"</span></span><br><span class="line">INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\about\index.md</span><br><span class="line"> </span><br><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"tags"</span></span><br><span class="line">INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\tags\index.md</span><br><span class="line"> </span><br><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"categories"</span></span><br><span class="line">INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\categories\index.md</span><br></pre></td></tr></table></figure>
-
-<p>还差最后一步，打开各页面对应的index.md文件，编辑如下内容，title和date是默认生成的，增加type即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"about"</span></span><br><span class="line">---</span><br><span class="line"> </span><br><span class="line">---</span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">---</span><br><span class="line"> </span><br><span class="line">---</span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+</li>
+</ul>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"about"</span></span><br><span class="line">INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\about\index.md</span><br><span class="line"> </span><br><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"tags"</span></span><br><span class="line">INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\tags\index.md</span><br><span class="line"> </span><br><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"categories"</span></span><br><span class="line">INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\categories\index.md</span><br></pre></td></tr></table></figure>
+
+
+还差最后一步，打开各页面对应的index.md文件，编辑如下内容，title和date是默认生成的，增加type即可。
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  ---</span><br><span class="line">  title: about</span><br><span class="line">  date: 2019-06-25 19:16:17</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">"about"</span></span><br><span class="line">  ---</span><br><span class="line">   </span><br><span class="line">  ---</span><br><span class="line">  title: about</span><br><span class="line">  date: 2019-06-25 19:16:17</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">  ---</span><br><span class="line">   </span><br><span class="line">  ---</span><br><span class="line">  title: about</span><br><span class="line">  date: 2019-06-25 19:16:17</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure></code></pre><ul>
 <li><p>tags 应用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: 标签测试</span><br><span class="line">date: 2019-11-09 23:01:24</span><br><span class="line">tags:</span><br><span class="line">- haha</span><br><span class="line">- 标签</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  title: 标签测试</span><br><span class="line">  date: 2019-11-09 23:01:24</span><br><span class="line">  tags:</span><br><span class="line">  - haha</span><br><span class="line">- 标签</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>categories 应用：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: something</span><br><span class="line">date: 2019-11-09 22:39:16</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">- hexo</span><br></pre></td></tr></table></figure>
 
 
 
-</li>
-</ul>
 </li>
 </ul>
 <hr>
@@ -322,13 +330,13 @@
 <li><p>参数说明：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Application name： # 应用名称，随意</span><br><span class="line">Homepage URL： # 网站URL，如https://xt998.github.io</span><br><span class="line">Application description # 描述，随意</span><br><span class="line">Authorization callback URL：# 网站URL，https://xt998.github.io</span><br><span class="line"></span><br><span class="line">点击注册后，页面跳转，其中Client ID和Client Secret在后面的配置中需要用到，到时复制粘贴即可</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-</li>
 <li><p>配置主题配置文件<code>next/_config.yml</code>中添加如下内容：</p>
-</li>
-</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  githubID: github帐号  <span class="comment"># 例：xt998   </span></span><br><span class="line">  repo: 仓库名称   <span class="comment"># 例：xt998.github.io</span></span><br><span class="line">  ClientID: Client ID</span><br><span class="line">  ClientSecret: Client Secret</span><br><span class="line">  adminUser: github帐号 <span class="comment">#指定可初始化评论账户</span></span><br><span class="line">  distractionFreeMode: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
