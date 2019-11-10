@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Lcamn" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+ 
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="一、标题在想要设置为标题的文字前面加#来表示 一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。 示例： 123456# 这是一级标题## 这是二级标题### 这是三级标题#### 这是四级标题##### 这是五级标题###### 这是六级标题  效果如下： 这是一级标题这是二级标题这是三级标题这是四级标题这是五级标题这是六级标题">
+<meta name="keywords" content="markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="markdown语法">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;markdown%E8%AF%AD%E6%B3%95&#x2F;index.html">
+<meta property="og:site_name" content="Lcamn">
+<meta property="og:description" content="一、标题在想要设置为标题的文字前面加#来表示 一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。 示例： 123456# 这是一级标题## 这是二级标题### 这是三级标题#### 这是四级标题##### 这是五级标题###### 这是六级标题  效果如下： 这是一级标题这是二级标题这是三级标题这是四级标题这是五级标题这是六级标题">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;6860761-fd2f51090a890873.jpg?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;550&#x2F;format&#x2F;webp">
+<meta property="og:updated_time" content="2019-11-10T01:13:50.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;6860761-fd2f51090a890873.jpg?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;550&#x2F;format&#x2F;webp">
+
+<link rel="canonical" href="http://yoursite.com/2019/11/10/markdown%E8%AF%AD%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>markdown语法 | Lcamn</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lcamn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/markdown%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lcamn">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          markdown语法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-11-10 08:58:50 / Modified: 09:13:50" itemprop="dateCreated datePublished" datetime="2019-11-10T08:58:50+08:00">2019-11-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h1><p>在想要设置为标题的文字前面加#来表示<br> 一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</p>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这是一级标题</span></span><br><span class="line"><span class="comment">## 这是二级标题</span></span><br><span class="line"><span class="comment">### 这是三级标题</span></span><br><span class="line"><span class="comment">#### 这是四级标题</span></span><br><span class="line"><span class="comment">##### 这是五级标题</span></span><br><span class="line"><span class="comment">###### 这是六级标题</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><hr>
+<a id="more"></a>
+
+<h1 id="二、字体"><a href="#二、字体" class="headerlink" title="二、字体"></a>二、字体</h1><ul>
+<li><h5 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h5></li>
+</ul>
+<p>要加粗的文字左右分别用两个*号包起来</p>
+<ul>
+<li><h5 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h5></li>
+</ul>
+<p>要倾斜的文字左右分别用一个*号包起来</p>
+<ul>
+<li><h5 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a>斜体加粗</h5></li>
+</ul>
+<p>要倾斜和加粗的文字左右分别用三个*号包起来</p>
+<ul>
+<li><h5 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h5></li>
+</ul>
+<p>要加删除线的文字左右分别用两个~~号包起来</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><strong>这是加粗的文字</strong><br> <em>这是倾斜的文字</em><br> <strong>这是斜体加粗的文字</strong><br> <del>这是加删除线的文字</del></p>
+<hr>
+<h1 id="三、引用"><a href="#三、引用" class="headerlink" title="三、引用"></a>三、引用</h1><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br> n个…</p>
+<p>示例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line"><span class="meta">&gt;&gt;</span>这是引用的内容</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>这是引用的内容</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="四、分割线"><a href="#四、分割线" class="headerlink" title="四、分割线"></a>四、分割线</h1><p>三个或者三个以上的 - 或者 * 都可以。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：<br> 可以看到，显示效果是一样的。</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<h1 id="五、图片"><a href="#五、图片" class="headerlink" title="五、图片"></a>五、图片</h1><p>语法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 <span class="string">''</span>图片title<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![blockchain](https:<span class="comment">//ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/</span></span><br><span class="line">u=<span class="number">702257389</span>,<span class="number">1274025419</span>&amp;fm=<span class="number">27</span>&amp;gp=<span class="number">0.</span>jpg <span class="string">"区块链"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/6860761-fd2f51090a890873.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/550/format/webp" alt="img"></p>
+<p>blockchain</p>
+<p><strong>上传本地图片直接点击导航栏的图片标志，选择图片即可</strong></p>
+<h1 id="六、超链接"><a href="#六、超链接" class="headerlink" title="六、超链接"></a>六、超链接</h1><p>语法：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">超链接名</span>](超链接地址 <span class="string">"超链接title"</span>)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">简书</span>](http:<span class="comment">//jianshu.com)</span></span><br><span class="line">[<span class="meta">百度</span>](http:<span class="comment">//baidu.com)</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><a href="https://www.jianshu.com/u/1f5ac0cf6a8b" target="_blank" rel="noopener">简书</a><br> <a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p>
+<p>注：Markdown本身语法不支持链接在新页面中打开，貌似简书做了处理，是可以的。别的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"超链接地址"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>超链接名<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">示例</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.jianshu.com/u/1f5ac0cf6a8b"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>简书<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="七、列表"><a href="#七、列表" class="headerlink" title="七、列表"></a>七、列表</h1><ul>
+<li><h5 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h5></li>
+</ul>
+<p>语法：<br> 无序列表用 - + * 任何一种都可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"></span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<ul>
+<li><p>列表内容</p>
+</li>
+<li><p>列表内容</p>
+</li>
+<li><p>列表内容</p>
+</li>
+<li><h5 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h5></li>
+</ul>
+<p>语法：<br> 数字加点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.列表内容</span><br><span class="line">2.列表内容</span><br><span class="line">3.列表内容</span><br><span class="line"></span><br><span class="line">注意：序号跟内容之间要有空格</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p>1.列表内容<br> 2.列表内容<br> 3.列表内容</p>
+<ul>
+<li><h5 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h5></li>
+</ul>
+<p><strong>上一级和下一级之间敲三个空格即可</strong></p>
+<ul>
+<li>一级无序列表内容<ul>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+</ul>
+</li>
+<li>一级无序列表内容<ol>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>一级有序列表内容<ul>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+</ul>
+</li>
+<li>一级有序列表内容<ol>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h1 id="八、表格"><a href="#八、表格" class="headerlink" title="八、表格"></a>八、表格</h1><p>语法：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">表头<span class="params">|表头|</span>表头</span><br><span class="line">---<span class="params">|:--:|</span>---<span class="symbol">:</span></span><br><span class="line">内容<span class="params">|内容|</span>内容</span><br><span class="line">内容<span class="params">|内容|</span>内容</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，多加了几个</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 <span class="params">| 包起来。此处省略</span></span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">姓名<span class="params">|技能|</span>排行</span><br><span class="line">--<span class="params">|:--:|</span>--<span class="symbol">:</span></span><br><span class="line">刘备<span class="params">|哭|</span>大哥</span><br><span class="line">关羽<span class="params">|打|</span>二哥</span><br><span class="line">张飞<span class="params">|骂|</span>三弟</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th align="center">技能</th>
+<th align="right">排行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>刘备</td>
+<td align="center">哭</td>
+<td align="right">大哥</td>
+</tr>
+<tr>
+<td>关羽</td>
+<td align="center">打</td>
+<td align="right">二哥</td>
+</tr>
+<tr>
+<td>张飞</td>
+<td align="center">骂</td>
+<td align="right">三弟</td>
+</tr>
+</tbody></table>
+<h1 id="九、代码"><a href="#九、代码" class="headerlink" title="九、代码"></a>九、代码</h1><p>语法：<br> 单行代码：代码之间分别用一个反引号包起来</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`代码内容`</span></span><br></pre></td></tr></table></figure>
+
+<p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">``</span><span class="string">`)</span></span><br><span class="line"><span class="string">  代码...</span></span><br><span class="line"><span class="string">  代码...</span></span><br><span class="line"><span class="string">  代码...</span></span><br><span class="line"><span class="string">(`</span><span class="string">``</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。</p>
+</blockquote>
+<p>示例：</p>
+<p>单行代码</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`create database hero;`</span></span><br></pre></td></tr></table></figure>
+
+<p>代码块</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(```)</span><br><span class="line">    function <span class="function"><span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">         echo <span class="string">"这是一句非常牛逼的代码"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">fun</span><span class="params">()</span></span>;</span><br><span class="line">(```)</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p>单行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database hero;</span><br></pre></td></tr></table></figure>
+
+<p>代码块</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function <span class="function"><span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">  echo <span class="string">"这是一句非常牛逼的代码"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">fun</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/markdown/" rel="tag"># markdown</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/09/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/" rel="next" title="标签测试">
+                  <i class="fa fa-chevron-left"></i> 标签测试
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、标题"><span class="nav-number">1.</span> <span class="nav-text">一、标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这是一级标题"><span class="nav-number">2.</span> <span class="nav-text">这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这是二级标题"><span class="nav-number">2.1.</span> <span class="nav-text">这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这是三级标题"><span class="nav-number">2.1.1.</span> <span class="nav-text">这是三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这是四级标题"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">这是四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#这是五级标题"><span class="nav-number">2.1.1.1.1.</span> <span class="nav-text">这是五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#这是六级标题"><span class="nav-number">2.1.1.1.1.1.</span> <span class="nav-text">这是六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、字体"><span class="nav-number">3.</span> <span class="nav-text">二、字体</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#加粗"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">加粗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#斜体"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text">斜体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#斜体加粗"><span class="nav-number">3.0.0.0.3.</span> <span class="nav-text">斜体加粗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除线"><span class="nav-number">3.0.0.0.4.</span> <span class="nav-text">删除线</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、引用"><span class="nav-number">4.</span> <span class="nav-text">三、引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、分割线"><span class="nav-number">5.</span> <span class="nav-text">四、分割线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、图片"><span class="nav-number">6.</span> <span class="nav-text">五、图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、超链接"><span class="nav-number">7.</span> <span class="nav-text">六、超链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、列表"><span class="nav-number">8.</span> <span class="nav-text">七、列表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#无序列表"><span class="nav-number">8.0.0.0.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有序列表"><span class="nav-number">8.0.0.0.2.</span> <span class="nav-text">有序列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#列表嵌套"><span class="nav-number">8.0.0.0.3.</span> <span class="nav-text">列表嵌套</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、表格"><span class="nav-number">9.</span> <span class="nav-text">八、表格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、代码"><span class="nav-number">10.</span> <span class="nav-text">九、代码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="L"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">L</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">L</span>
+</div>
+  
+  <!--
+   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+  -->
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
