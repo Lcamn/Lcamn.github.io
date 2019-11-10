@@ -60,7 +60,7 @@
 <meta property="og:site_name" content="Lcamn">
 <meta property="og:description" content="一、  准备工作 安装git 、node.js  安装git  镜像网站 下载">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-10T08:50:26.615Z">
+<meta property="og:updated_time" content="2019-11-10T09:13:48.842Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/10/hexo-nexT-github-gitalk-%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/">
@@ -210,7 +210,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-11-10 14:28:29 / Modified: 16:50:26" itemprop="dateCreated datePublished" datetime="2019-11-10T14:28:29+08:00">2019-11-10</time>
+              <time title="Created: 2019-11-10 14:28:29 / Modified: 17:13:48" itemprop="dateCreated datePublished" datetime="2019-11-10T14:28:29+08:00">2019-11-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +276,7 @@
 <li>新建目录hexo，用来初始化hexo</li>
 <li>在hexo根目录下，打开Git Bash 执行命令：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br><span class="line">hexo init</span><br><span class="line">hexo g </span><br><span class="line">hexo s</span><br><span class="line"><span class="comment">#在浏览器上输入地址：http://localhost:4000/ 即可看是否成功</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  npm install -g hexo</span><br><span class="line">  hexo init</span><br><span class="line">  hexo g </span><br><span class="line">  hexo s</span><br><span class="line"><span class="comment">#在浏览器上输入地址：http://localhost:4000/ 即可看是否成功</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -303,18 +303,21 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"about"</span></span><br><span class="line">hexo new page <span class="string">"tags"</span></span><br><span class="line">hexo new page <span class="string">"categories"</span></span><br></pre></td></tr></table></figure>
 
 <p>运行结果如下，会再source文件下创建about、tags、categories文件夹，每个文件夹下还会创建一个index.md文件表示关于、标签页分类页面，编辑这三个MarkDown文件可以自定义这三个页面的内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"about"</span></span><br><span class="line">  INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\about\index.md</span><br><span class="line">   </span><br><span class="line">  D:\hexo\blog&gt;hexo new page <span class="string">"tags"</span></span><br><span class="line">  INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\tags\index.md</span><br><span class="line">   </span><br><span class="line">  D:\hexo\blog&gt;hexo new page <span class="string">"categories"</span></span><br><span class="line">  INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\categories\index.md</span><br></pre></td></tr></table></figure>
+
+<p>  还差最后一步，打开各页面对应的index.md文件，编辑如下内容，title和date是默认生成的，增加type即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"about"</span></span><br><span class="line">--- </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">---</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+
+
+
 </li>
 </ul>
 </li>
 </ul>
-<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"about"</span></span><br><span class="line">INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\about\index.md</span><br><span class="line"> </span><br><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"tags"</span></span><br><span class="line">INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\tags\index.md</span><br><span class="line"> </span><br><span class="line">D:\hexo\blog&gt;hexo new page <span class="string">"categories"</span></span><br><span class="line">INFO  Created: D:\hexo\blog\<span class="built_in">source</span>\categories\index.md</span><br></pre></td></tr></table></figure>
-
-
-还差最后一步，打开各页面对应的index.md文件，编辑如下内容，title和date是默认生成的，增加type即可。
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  ---</span><br><span class="line">  title: about</span><br><span class="line">  date: 2019-06-25 19:16:17</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">"about"</span></span><br><span class="line">  ---</span><br><span class="line">   </span><br><span class="line">  ---</span><br><span class="line">  title: about</span><br><span class="line">  date: 2019-06-25 19:16:17</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">  ---</span><br><span class="line">   </span><br><span class="line">  ---</span><br><span class="line">  title: about</span><br><span class="line">  date: 2019-06-25 19:16:17</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure></code></pre><ul>
+<ul>
 <li><p>tags 应用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  title: 标签测试</span><br><span class="line">  date: 2019-11-09 23:01:24</span><br><span class="line">  tags:</span><br><span class="line">  - haha</span><br><span class="line">- 标签</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: 标签测试</span><br><span class="line">date: 2019-11-09 23:01:24</span><br><span class="line">tags:</span><br><span class="line">- haha</span><br><span class="line">- 标签</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>categories 应用：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: something</span><br><span class="line">date: 2019-11-09 22:39:16</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">- hexo</span><br></pre></td></tr></table></figure>
