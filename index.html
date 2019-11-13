@@ -182,6 +182,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/SpringMVC-%E6%B3%A8%E8%A7%A3%E3%80%81%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lcamn">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/13/SpringMVC-%E6%B3%A8%E8%A7%A3%E3%80%81%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">RequestMapping 注解、处理请求</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-11-13 15:48:05 / Modified: 20:37:29" itemprop="dateCreated datePublished" datetime="2019-11-13T15:48:05+08:00">2019-11-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、-RequestMapping"><a href="#一、-RequestMapping" class="headerlink" title="一、@RequestMapping"></a>一、@RequestMapping</h2><ul>
+<li>SpringMVC 使用@RequestMapping 注解为控制器指定可以处理哪些 URL 请求</li>
+<li>在控制器的类定义及方法定义处都可标注 @RequestMapping<ul>
+<li>标记在类上：提供初步的请求映射信息。相对于 WEB 应用的根目录</li>
+<li>标记在方法上：提供进一步的细分映射信息。相对于标记在类上的 URL。</li>
+</ul>
+</li>
+<li>若类上未标注 @RequestMapping，则方法处标记的 URL 相对于 WEB 应用的根目录。</li>
+<li>作用：DispatcherServlet 截获请求后，就通过控制器上 @RequestMapping 提供的映射信息确定请求所对应的处理方法。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/13/SpringMVC-%E6%B3%A8%E8%A7%A3%E3%80%81%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/SpringMvc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -632,7 +718,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
