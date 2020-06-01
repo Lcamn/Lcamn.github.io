@@ -154,6 +154,245 @@
 </ul>
 </li>
 </ul>
+<h3 id="JavaSE-常用-API"><a href="#JavaSE-常用-API" class="headerlink" title="JavaSE 常用 API"></a>JavaSE 常用 API</h3><ul>
+<li><p>Java 中的日期和时间</p>
+<ul>
+<li><p>如何取得年月日、小时分钟秒？</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateTimeTest</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> Calendar cal = Calendar.getInstance();</span><br><span class="line"> System.out.println(cal.get(Calendar.YEAR));</span><br><span class="line"> System.out.println(cal.get(Calendar.MONTH)); <span class="comment">// 0 - 11</span></span><br><span class="line"> System.out.println(cal.get(Calendar.DATE));</span><br><span class="line"> System.out.println(cal.get(Calendar.HOUR_OF_DAY));</span><br><span class="line"> System.out.println(cal.get(Calendar.MINUTE));</span><br><span class="line"> System.out.println(cal.get(Calendar.SECOND));</span><br><span class="line"> <span class="comment">// Java 8</span></span><br><span class="line"> LocalDateTime dt = LocalDateTime.now();</span><br><span class="line"> System.out.println(dt.getYear());</span><br><span class="line"> System.out.println(dt.getMonthValue()); <span class="comment">// 1 - 12</span></span><br><span class="line"> System.out.println(dt.getDayOfMonth());</span><br><span class="line"> System.out.println(dt.getHour());</span><br><span class="line"> System.out.println(dt.getMinute());</span><br><span class="line"> System.out.println(dt.getSecond());</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何取得从 1970 年 1 月 1 日 0 时 0 分 0 秒到现在的毫秒数？</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Calendar.getInstance().getTimeInMillis(); <span class="comment">//第一种方式</span></span><br><span class="line">System.currentTimeMillis(); <span class="comment">//第二种方式</span></span><br><span class="line"><span class="comment">// Java 8</span></span><br><span class="line">Clock.systemDefaultZone().millis();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何格式化日期？</p>
+<ul>
+<li>1）Java.text.DataFormat 的子类（如 SimpleDateFormat 类）中的 format(Date)方法可将日期格式化。</li>
+<li>2）Java 8 中可以用 java.time.format.DateTimeFormatter 来格式化时间日期，代码如下所示：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"> <span class="keyword">import</span> java.time.LocalDate;</span><br><span class="line"> <span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"> <span class="keyword">import</span> java.util.Date;</span><br><span class="line"> <span class="class"><span class="keyword">class</span>   <span class="title">DateFormatTest</span> </span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            SimpleDateFormat oldFormatter = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd"</span>);</span><br><span class="line">            Date date1 = <span class="keyword">new</span> Date();</span><br><span class="line">             System.out.println(oldFormatter.format(date1));</span><br><span class="line">            </span><br><span class="line">             <span class="comment">// Java 8</span></span><br><span class="line">             DateTimeFormatter newFormatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy/MM/dd"</span>);</span><br><span class="line">             LocalDate date2 = LocalDate.now();</span><br><span class="line">             System.out.println(date2.format(newFormatter));</span><br><span class="line">             &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//.parse() 将字符串转为时间类型</span></span><br></pre></td></tr></table></figure>
+
+<p><code>补充：Java 的时间日期 API 一直以来都是被诟病的东西，为了解决这一问题，Java 8 中引入了新的时间日期 API，其中包括 LocalDate、LocalTime、LocalDateTime、Clock、Instant 等类，这些的类的设计都使用了不变模式，因此是线程安全的设计。</code></p>
+</li>
+</ul>
+</li>
+<li><p>Java 的数据类型 </p>
+<ul>
+<li><p>Java 的基本数据类型都有哪些各占几个字节？</p>
+<table>
+<thead>
+<tr>
+<th align="center">四类</th>
+<th align="center">八种</th>
+<th align="center">字节数</th>
+<th align="center">数据表示范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">整形</td>
+<td align="center">byte</td>
+<td align="center">1</td>
+<td align="center">-128~127</td>
+</tr>
+<tr>
+<td align="center">整形</td>
+<td align="center">short</td>
+<td align="center">2</td>
+<td align="center">-32768~32767</td>
+</tr>
+<tr>
+<td align="center">整形</td>
+<td align="center">int</td>
+<td align="center">4</td>
+<td align="center">-2147483648～2147483647</td>
+</tr>
+<tr>
+<td align="center">整形</td>
+<td align="center">long</td>
+<td align="center">8</td>
+<td align="center">-2的63次幂～2的 63次幂-1</td>
+</tr>
+<tr>
+<td align="center">浮点型</td>
+<td align="center">float</td>
+<td align="center">4</td>
+<td align="center">-3.403E38～3.403E38</td>
+</tr>
+<tr>
+<td align="center">浮点型</td>
+<td align="center">double</td>
+<td align="center">8</td>
+<td align="center">-1.798E308～1.798E308</td>
+</tr>
+<tr>
+<td align="center">字符型</td>
+<td align="center">char</td>
+<td align="center">2</td>
+<td align="center">表示一个字符</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>int 和 和 Integer 有什么区别？</p>
+<ul>
+<li>Java 是一个近乎纯洁的面向对象编程语言，但是为了编程的方便还是引入了基本数据类型，为了能够将这些基本数据类型当成对象操作，Java 为每一个基本数据类型都引入了对应的包装类型（wrapper class），int 的包装类就是Integer，从 Java 5 开始引入了自动装箱/拆箱机制，使得二者可以相互转换。</li>
+<li>Java 为每个原始类型提供了包装类型：<ul>
+<li>原始类型: boolean，char，byte，short，int，long，float，double</li>
+<li>包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>String、StringBuffer、StringBuilder 的区别？</p>
+<ul>
+<li><p>1）可变不可变<br>String：字符串常量，在修改时不会改变自身；若修改，等于重新生成新的字符串对象。<br>StringBuffer：在修改时会改变对象自身，每次操作都是对 StringBuffer 对象本身进行修改，不是生成新的对象；使用场景：对字符串经常改变情况下，主要方法：append（），insert（）等。</p>
+</li>
+<li><p>2）线程是否安全<br>String：对象定义后不可变，线程安全。<br>StringBuffer：是线程安全的（对调用方法加入同步锁），执行效率较慢，适用于多线程下操作字符串缓冲区大量数据。<br>StringBuilder：是线程不安全的，适用于单线程下操作字符串缓冲区大量数据。</p>
+</li>
+<li><p>（3）、共同点<br>StringBuilder 与 StringBuffer 有公共父类 AbstractStringBuilder(抽象类)。</p>
+<p>StringBuilder、StringBuffer 的方法都会调用 AbstractStringBuilder 中的公共方法，如 super.append(…)。<br>只是 StringBuffer 会在方法上加 synchronized 关键字，进行同步。最后，如果程序不是多线程的，那么使用StringBuilder 效率高于 StringBuffer。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Java 的 IO</p>
+<ul>
+<li><p>Java 中有几种类型的流?</p>
+<ul>
+<li>按照流的方向：输入流（inputStream）和输出流（outputStream）。</li>
+<li>按照实现功能分：节点流（可以从或向一个特定的地方（节点）读写数据。如 FileReader）和处理流（是对一个已存在的流的连接和封装，通过所封装的流的功能调用实现数据读写。如 BufferedReader。处理流的构造方法总是要带一个其他的流对象做参数。一个流对象经过其他流的多次包装，称为流的链接。）</li>
+<li>按照处理数据的单位：字节流和字符流。字节流继承于 InputStream 和 OutputStream，字符流继承于InputStreamReader 和 OutputStreamWriter。\</li>
+</ul>
+</li>
+<li><p>什么是 java 序列化，如何实现 java 序列化？</p>
+<ul>
+<li>序列化就是一种用来处理对象流的机制，所谓对象流也就是将对象的内容进行流化。可以对流化后的对象进行读写操作，也可将流化后的对象传输于网络之间。序列化是为了解决在对对象流进行读写操作时所引发的问题。</li>
+<li>序 列 化 的 实 现 ： 将 需 要 被 序 列 化 的 类 实 现 Serializable 接 口 ， 该 接 口 没 有 需 要 实 现 的 方 法 ，implements Serializable 只是为了标注该对象是可被序列化的，然后使用一个输出流(如：FileOutputStream)来构造一个 ObjectOutputStream(对象流)对象，接着，使用 ObjectOutputStream 对象的 writeObject(Object obj)方法就可以将参数为 obj 的对象写出(即保存其状态)，要恢复的话则用输入流.</li>
+</ul>
+</li>
+<li><p><strong>如何将一个 java 对象序列化到文件里?</strong></p>
+<ul>
+<li>在 java 中能够被序列化的类必须先实现 Serializable 接口，该接口没有任何抽象方法只是起到一个标记作用。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//对象输出流</span></span><br><span class="line">  ObjectOutputStream objectOutputStream =</span><br><span class="line">  <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(<span class="string">"D://obj"</span>)));</span><br><span class="line"></span><br><span class="line">  objectOutputStream.writeObject(<span class="keyword">new</span> User(<span class="string">"zhangsan"</span>, <span class="number">100</span>));</span><br><span class="line">  objectOutputStream.close();</span><br><span class="line">  <span class="comment">//对象输入流</span></span><br><span class="line">  ObjectInputStream objectInputStream =</span><br><span class="line">  <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"D://obj"</span>)));</span><br><span class="line">  objectInputStream.close();</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Java 的集合</strong> </p>
+<ul>
+<li><p>HashMap 排序题，上机题。</p>
+<p>已知一个 HashMap集合， User 有 name（String）和 age（int）属性。请写一个方法实现对HashMap 的排序功能，该方法接收 HashMap为形参，返回类型为 HashMap，要求对 HashMap 中的 User 的 age 倒序进行排序。排序时 key=value 键值对不得拆散。</p>
+<p>注意：要做出这道题必须对集合的体系结构非常的熟悉。HashMap 本身就是不可排序的，但是该道题偏偏让给HashMap 排序，那我们就得想在 API 中有没有这样的 Map 结构是有序的，LinkedHashMap，对的，就是他，他是Map 结构，也是链表结构，有序的，更可喜的是他是 HashMap 的子类，我们返回 LinkedHashMap即可，还符合面向接口（父类编程的思想）。但凡是对集合的操作，我们应该保持一个原则就是能用 JDK 中的 API 就有 JDK 中的 API，比如排序算法我们不应该去用冒泡或者选择，而是首先想到用 Collections 集合工具类。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//代码</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>请问 ArrayList、HashSet、HashMap 是线程安全的吗？如果不是我想要线程安全的集合怎么办？</p>
+<ul>
+<li>他们的每个方法都没有加锁，都是线程不安全的。</li>
+<li>在集合中 Vector 和 HashTable 是线程安全的。打开源码会发现其实就是把各自核心方法添加上了synchronized 关键字。</li>
+</ul>
+</li>
+<li><p>ArrayList 内部用什么实现的？</p>
+<p><code>（回答这样的问题，不要只回答个皮毛，可以再介绍一下 ArrayList 内部是如何实现数组的增加和删除的，因为数组在创建的时候长度是固定的，那么就有个问题我们往 rrayList 中不断的添加对象，它是如何管理这些数组呢？）</code></p>
+<ul>
+<li>ArrayList 内部是用 Object[]实现的。接下来我们分别分析 ArrayList 的构造、add、remove、clear 方法的实现原理。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Java集合中List-Set以及Map等集合体系详解"><a href="#Java集合中List-Set以及Map等集合体系详解" class="headerlink" title="Java集合中List,Set以及Map等集合体系详解"></a>Java集合中List,Set以及Map等集合体系详解</h3><h5 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h5><ul>
+<li><p>List , Set, Map都是接口，前两个继承至Collection接口，Map为独立接口</p>
+</li>
+<li><p>Set下有HashSet，LinkedHashSet，TreeSet</p>
+</li>
+<li><p>List下有ArrayList，Vector，LinkedList</p>
+</li>
+<li><p>Map下有Hashtable，LinkedHashMap，HashMap，TreeMap</p>
+</li>
+<li><p>Collection接口下还有个Queue接口，有PriorityQueue类</p>
+<p><img src="https://img-blog.csdn.net/20180612094225630?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5ncXVuc2h1YWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图解"></p>
+</li>
+</ul>
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><ul>
+<li>Queue接口与List、Set同一级别，都是继承了Collection接口。看图你会发现,LinkedList既可以实现Queue接口,也可以实现List接口.只不过呢, LinkedList实现了Queue接口。Queue接口窄化了对LinkedList的方法的访问权限（即在方法中的参数类型如果是Queue时，就完全只能访问Queue接口所定义的方法 了，而不能直接访问 LinkedList的非Queue的方法），以使得只有恰当的方法才可以使用。</li>
+<li>SortedSet是个接口，它里面的（只有TreeSet这一个实现可用）中的元素一定是有序的。</li>
+</ul>
+<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><h6 id="Connection接口"><a href="#Connection接口" class="headerlink" title="Connection接口:"></a><strong><em>Connection接口:</em></strong></h6><p><strong>— List 有序,可重复</strong></p>
+<ul>
+<li>ArrayList<br>优点: 底层数据结构是数组，查询快，增删慢。<br>缺点: 线程不安全，效率高</li>
+<li>Vector<br>优点: 底层数据结构是数组，查询快，增删慢。<br>缺点: 线程安全，效率低</li>
+<li>LinkedList<br>优点: 底层数据结构是链表，查询慢，增删快。<br>缺点: 线程不安全，效率高</li>
+</ul>
+<p><strong>—Set 无序,唯一</strong></p>
+<ul>
+<li><p>HashSet<br>底层数据结构是哈希表。(无序,唯一)<br>如何来保证元素唯一性?<br>1.依赖两个方法：hashCode()和equals()</p>
+</li>
+<li><p>LinkedHashSet<br>底层数据结构是链表和哈希表。(FIFO插入有序,唯一)<br>1.由链表保证元素有序<br>2.由哈希表保证元素唯一</p>
+</li>
+<li><p>TreeSet<br>底层数据结构是红黑树。(唯一，有序)</p>
+<p>1) 如何保证元素排序的呢?<br>自然排序、比较器排序<br>2) 如何保证元素唯一性的呢?<br>根据比较的返回值是否是0来决定</p>
+</li>
+</ul>
+<p><strong>针对Collection集合我们到底使用谁呢?(掌握)</strong></p>
+<p><strong><em>唯一吗?</em></strong></p>
+<blockquote>
+<p>是：Set</p>
+<blockquote>
+<p>排序吗?</p>
+<blockquote>
+<p>是：TreeSet或LinkedHashSet<br>否：HashSet<br>如果你知道是Set，但是不知道是哪个Set，就用HashSet。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr>
+<blockquote>
+<p>否：List</p>
+<p>要安全吗?</p>
+<blockquote>
+<p>是：Vector<br>否：ArrayList或者LinkedList</p>
+<blockquote>
+<p>查询多：ArrayList<br>增删多：LinkedList<br>如果你知道是List，但是不知道是哪个List，就用ArrayList。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h5 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h5><p>Map接口有三个比较重要的实现类，分别是HashMap、TreeMap和HashTable。</p>
+<ul>
+<li>TreeMap是有序的，HashMap和HashTable是无序的。</li>
+<li>Hashtable的方法是同步的，HashMap的方法不是同步的。这是两者最主要的区别。</li>
+</ul>
+<p>这就意味着:</p>
+<ul>
+<li>Hashtable是线程安全的，HashMap不是线程安全的。</li>
+<li>HashMap效率较高，Hashtable效率较低。如果对同步性或与遗留代码的兼容性没有任何要求，建议使用HashMap。 查看Hashtable的源代码就可以发现，除构造函数外，Hashtable的所有 public 方法声明中都有 synchronized关键字，而HashMap的源码中则没有。</li>
+<li>Hashtable不允许null值，HashMap允许null值（key和value都允许）</li>
+<li>父类不同：Hashtable的父类是Dictionary，HashMap的父类是AbstractMap<br><img src="https://img-blog.csdn.net/20180612135157564?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5ncXVuc2h1YWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="map"></li>
+</ul>
+<h5 id="重点问题分析："><a href="#重点问题分析：" class="headerlink" title="重点问题分析："></a>重点问题分析：</h5><h6 id="TreeSet-LinkedHashSet-and-HashSet-的区别："><a href="#TreeSet-LinkedHashSet-and-HashSet-的区别：" class="headerlink" title="TreeSet, LinkedHashSet and HashSet 的区别："></a>TreeSet, LinkedHashSet and HashSet 的区别：</h6><ul>
+<li><strong>介绍</strong>  <ul>
+<li>TreeSet, LinkedHashSet and HashSet 在java中都是实现Set的数据结构</li>
+<li>TreeSet的主要功能用于排序</li>
+<li>LinkedHashSet的主要功能用于保证FIFO即有序的集合(先进先出)</li>
+<li>HashSet只是通用的存储数据的集合</li>
+</ul>
+</li>
+<li><strong>相同点</strong><ul>
+<li>Duplicates elements: 因为三者都实现Set interface，所以三者都不包含duplicate elements</li>
+<li>Thread safety: 三者都不是线程安全的，如果要使用线程安全可以Collections.synchronizedSet()</li>
+</ul>
+</li>
+<li><strong>不同点</strong><ul>
+<li>Performance and Speed: HashSet插入数据最快，其次LinkHashSet，最慢的是TreeSet因为内部实现排序</li>
+<li>Ordering: HashSet不保证有序，LinkHashSet保证FIFO即按插入顺序排序，TreeSet安装内部实现排序，也可以自定义排序规则</li>
+<li>null:HashSet和LinkHashSet允许存在null数据，但是TreeSet中插入null数据时会报NullPointerException</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Java</category>
