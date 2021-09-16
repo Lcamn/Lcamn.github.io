@@ -53,13 +53,14 @@
 </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Lcamn">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;index.html">
+<meta property="og:title" content="search">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;search&#x2F;index.html">
 <meta property="og:site_name" content="Lcamn">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-05-08T03:05:28.000Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/">
+<link rel="canonical" href="http://yoursite.com/search/">
 
 
 <script id="page-configurations">
@@ -68,12 +69,13 @@
     sidebar: "",
     isHome: false,
     isPost: false,
-    isPage: false,
-    isArchive: true
+    isPage: true,
+    isArchive: false
   };
 </script>
 
-  <title>Archive | Lcamn</title>
+  <title>search | Lcamn
+  </title>
   
 
 
@@ -198,57 +200,50 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
           <div class="content">
             
 
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="en">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">search
+</h1>
+
+<div class="post-meta">
   
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 10 posts in total. Keep on posting.</span>
-      </div>
+
+</div>
+
+</header>
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-26T22:34:30+08:00"
-              content="2020-05-26">
-          05-26
-        </time>
+      
+      
+      <div class="post-body">
+          
       </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/05/26/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" itemprop="url">
-            <span itemprop="name">JAVA基础知识整理</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-
+      
+      
+      
     </div>
+    
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -428,6 +423,23 @@
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'ca1c3ce522341bab1575',
+      clientSecret: '98bea9d7a24697bbcaeb651ab737d1ac318e5fa4',
+      repo: 'Lcamn.github.io',
+      owner: 'Lcamn',
+      admin: ['Lcamn'],
+      id: '6d026128bba87ec7ba853c9aa80f4323',
+        language: 'zh-CN',
+      distractionFreeMode: 'false'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 </html>
